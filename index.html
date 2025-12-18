@@ -99,7 +99,7 @@
   <h2>Partij voor de Fufu</h2>
   <nav>
     <button onclick="showPage('home')">Home</button>
-    <button onclick="showPage('breaking')">wetsvoorstel</button>
+    <button onclick="showPage('plan')">wetsvoorstel</button>
     <button onclick="showPage('calc')">jouw BBOV calculator</button>
     <button onclick="showPage('aanmelden')">plan</button>
     <button onclick="showPage('stemmen')">politiek denhaag's mening</button>
@@ -108,9 +108,56 @@
     <button onclick="showPage('aboutleden')">over onze leden</button>
   </nav>
 </header>
-<!-- bbov-calculator.html -->
-<div id="calc" class="page" style="display:none; padding:20px;">
-  <h1>Jouw BBOV Calculator</h1>
+
+<main>
+  <!-- HOME -->
+  <section id="home" class="page active">
+    <div class="card">
+      <h1>Welkom bij BBOV</h1>
+      <p>wij zorgen er voor dat ov betaalbaarder wordt in heel Nederland voor de Nederlander die dagelijks het OV gebruikt</p>
+      <p>gebruik jij niet dagelijks het OV maar wil je dit gaan doen? de auto vaker thuis laten en CO2 uitstoot tegen gaan? steun ons dan</p>
+      <p>ook voor de Nederlander die niet vaak het OV gebruikt willen wij het OV duidelijker hebben</p>
+    </div>
+  </section>
+
+  <!-- BREAKING NEWS -->
+  <section id="plan" class="page">
+    <h1>ons plan kort samengevat</h1>
+    <div class="grid">
+      <div class="card">
+        <h3>minderjarige (jongeren 12-18)</h3>
+        <p>voor 12-18 jarige willen wij het ov veel duidelijker en betaalbaarder maken. vooral omdat de meeste minderjarige hun rijbewijs niet hebben is die niet een wil. maar een must.</p>
+      </div>
+      <div class="card">
+        <h3>de jongeren pas</h3>
+        <p>een pas die je 24/7 laat inchecken waar je dan ook maar wil. hoelaat je dan ook maar wil. dit abbnoment zou zo'n 75 euro/maand moeten kosten</p>
+      </div>
+       <div class="card">
+        <h3>de volwassenen kaart (18+)</h3>
+        <p>vanaf je 18e betaal je 125 euro/maand voor 24/7 OV</p>
+      </div>
+       <div class="card">
+        <h3>gezinnen met een laag inkomen</h3>
+        <p>voor gezinnen met een laag inkomen is 125 euro niet te veroolofen. daarom willen wij voor kinderen en volwassenen met een laag inkomen (Kinderen waarvan de ouders een laag inkomen hebben) een 75 procent korting geven!</p>
+      </div>
+        <div class="card">
+        <h3>24/7 waar je dan maar wil</h3>
+        <p>dit plan moet je toegang geven tot al het OV in Nederland, van NS tot GVB of RET en zelfs RNET. </p>
+      </div>
+      <div class="card">
+        <h3>jonger dan 12 jaar</h3>
+        <p>wij geloven dat kinderen die jonger dan 12 zijn gewoon lekker gratis moeten kunnen reizen.</p>
+      </div>
+         <div class="card">
+        <h3>andere europese landen</h3>
+        <p>in duitsland heb je ook al zo'n kaart voor 45 euro. hier werkt dit ook effectief met een lagere prijs met een grotere bevolking. dus waar wachten we op!</p>
+      </div>
+    </div>
+  </section>
+
+calculater-----
+  <section id="calc" class="page">
+   <h1>Jouw BBOV Calculator</h1>
 
   <label for="leeftijd">Leeftijd:</label>
   <input type="number" id="leeftijd" placeholder="Bijv. 16">
@@ -160,55 +207,6 @@ function berekenKosten() {
 
   document.getElementById("result").innerText = `Jouw maandelijkse kosten: €${kosten}`;
 }
-</script>
-
-<main>
-  <!-- HOME -->
-  <section id="home" class="page active">
-    <div class="card">
-      <h1>Welkom bij de Partij voor de Fufu</h1>
-      <p>De Partij voor de Fufu (PvdF) is een progressieve politieke beweging, gebaseerd in Amsterdam.</p>
-      <p>Wij staan voor inspraak, vernieuwing en een frisse blik op politiek.</p>
-      <p>Wij zijn gebasseerd op D66, een centrum linkse sociaal progessieve partij</p>
-    </div>
-  </section>
-
-  <!-- BREAKING NEWS -->
-  <section id="breaking" class="page">
-    <h1>Breaking Fufu News</h1>
-    <div class="grid">
-      <div class="card">
-        <h3>Formatiegesprekken gestart</h3>
-        <p>De PvdF is begonnen met gesprekken over samenwerking.</p>
-      </div>
-      <div class="card">
-        <h3>Nieuwe leden welkom</h3>
-        <p>Onze beweging groeit elke dag verder.</p>
-      </div>
-       <div class="card">
-        <h3>centrum links, wat is dat?</h3>
-        <p>niet extreem links, niet rechts maar beetje links. meer links dan rechts.</p>
-      </div>
-       <div class="card">
-        <h3>tiktok</h3>
-        <p>nieuwe tiktoks!!</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- LEDEN -->
-  <section id="leden" class="page">
-    <h1>Onze Leden</h1>
-    <p><strong>Aantal leden van de PvdF:</strong>5</p>
-    <div class="grid">
-      <div class="card">de lijstrekker: zainy</div>
-      <div class="card">de 2e op de lijst: Sofia</div>
-      <div class="card">de 3e op de lijst: luisanny</div>
-      <div class="card">de 4e op de lijst: Nawal</div>
-      <div class="card">de 5e op de lijst: Mumtas</div>
-      <div class="card">de 6e op de lijst: Najma</div>
-      <div class="card">de 7e op de lijst: misschien wel jij! meld je binnekort aan</div>
-    </div>
   </section>
 
   <!-- AANMELDEN -->
