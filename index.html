@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Partij voor de Fufu</title>
+  <title>beter betaalbaarder OV</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
@@ -99,15 +99,68 @@
   <h2>Partij voor de Fufu</h2>
   <nav>
     <button onclick="showPage('home')">Home</button>
-    <button onclick="showPage('breaking')">Breaking fufu news</button>
-    <button onclick="showPage('leden')">Leden van PvdF</button>
-    <button onclick="showPage('aanmelden')">Aanmelden voor PvdF</button>
-    <button onclick="showPage('stemmen')">Stemmen</button>
+    <button onclick="showPage('breaking')">wetsvoorstel</button>
+    <button onclick="showPage('calc')">jouw BBOV calculator</button>
+    <button onclick="showPage('aanmelden')">plan</button>
+    <button onclick="showPage('stemmen')">politiek denhaag's mening</button>
     <button onclick="showPage('contact')">Contact</button>
     <button onclick="showPage('verkiezingen')">aankomende verkiezingen</button>
     <button onclick="showPage('aboutleden')">over onze leden</button>
   </nav>
 </header>
+<!-- bbov-calculator.html -->
+<div id="calc" class="page" style="display:none; padding:20px;">
+  <h1>Jouw BBOV Calculator</h1>
+
+  <label for="leeftijd">Leeftijd:</label>
+  <input type="number" id="leeftijd" placeholder="Bijv. 16">
+  <br><br>
+
+  <label for="gezin">Gezinspas:</label>
+  <select id="gezin">
+    <option value="nee">Nee</option>
+    <option value="ja">Ja</option>
+  </select>
+  <br><br>
+
+  <button onclick="berekenKosten()">Bereken Kosten</button>
+  <div id="result" style="margin-top:15px; font-weight:bold;"></div>
+  <br>
+
+  <button onclick="showPage('home')">Terug naar start</button>
+</div>
+
+<script>
+function showPage(pageId) {
+  // verberg alle pagina's (zorg dat je alle pagina's dezelfde class geeft)
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(page => page.style.display = 'none');
+  // toon geselecteerde pagina
+  document.getElementById(pageId).style.display = 'block';
+}
+
+function berekenKosten() {
+  const leeftijd = parseInt(document.getElementById("leeftijd").value);
+  const gezin = document.getElementById("gezin").value;
+  let kosten = 0;
+
+  if (leeftijd >= 12 && leeftijd <= 18) {
+    kosten = 75;
+  } else {
+    kosten = 125;
+  }
+
+  if (gezin === "ja") {
+    if (leeftijd < 18) {
+      kosten = 18.75;
+    } else {
+      kosten = 31.25;
+    }
+  }
+
+  document.getElementById("result").innerText = `Jouw maandelijkse kosten: €${kosten}`;
+}
+</script>
 
 <main>
   <!-- HOME -->
