@@ -223,6 +223,7 @@
   <label><strong>Leeftijdsgroep</strong></label>
   <select id="leeftijd">
     <option value="">-- kies --</option>
+    <option value="onder12">Onder de 12</option>
     <option value="kind">Kind / jongere (12–18)</option>
     <option value="volwassene">Volwassene (18+)</option>
   </select>
@@ -263,9 +264,25 @@ function berekenPrijs() {
   const stadspas = document.getElementById("stadspas").value;
   const uitkomst = document.getElementById("uitkomst");
 
-  if (!leeftijd || !stadspas) {
+  if (!leeftijd) {
     uitkomst.style.display = "block";
-    uitkomst.textContent = "Kies beide opties om het bedrag te zien.";
+    uitkomst.textContent = "Kies een leeftijdsgroep.";
+    return;
+  }
+
+  // Onder de 12 = altijd gratis
+  if (leeftijd === "onder12") {
+    uitkomst.style.display = "block";
+    uitkomst.innerHTML = `
+      Je betaalt <strong>€0,00</strong> per maand.
+      <br><small>Gratis reizen voor kinderen onder de 12.</small>
+    `;
+    return;
+  }
+
+  if (!stadspas) {
+    uitkomst.style.display = "block";
+    uitkomst.textContent = "Geef aan of je een stadspas hebt.";
     return;
   }
 
@@ -346,7 +363,7 @@ function berekenPrijs() {
 </main>
 
 <footer>
-  <p>Alle rechten voorbehouden – BBOVNL</p>
+  <p>Alle rechten voorbehouden – BBOVNL, om in te schrijven, zie rechts-boven in beeld</p>
 </footer>
 
 <script>
