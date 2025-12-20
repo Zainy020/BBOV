@@ -217,34 +217,45 @@
 
 <section id="calc" class="page">
 <h1>Hoeveel betaal je per maand?</h1>
+<p>Beantwoord de vragen hieronder en zie direct wat jouw maandbedrag zou zijn.</p>
 
-<p>Beantwoord de vragen hieronder om te zien wat jouw maandbedrag zou zijn.</p>
+<div class="card">
+  <label><strong>Leeftijdsgroep</strong></label>
+  <select id="leeftijd">
+    <option value="">-- kies --</option>
+    <option value="kind">Kind / jongere (12–18)</option>
+    <option value="volwassene">Volwassene (18+)</option>
+  </select>
 
-<label>
-  <strong>Ben je een kind of een volwassene?</strong>
-</label>
-<select id="leeftijd">
-  <option value="">-- kies --</option>
-  <option value="kind">Kind (12–18)</option>
-  <option value="volwassene">Volwassene (18+)</option>
-</select>
+  <label style="margin-top:1rem;"><strong>Heb je een stadspas / lage inkomensregeling?</strong></label>
+  <select id="stadspas">
+    <option value="">-- kies --</option>
+    <option value="ja">Ja</option>
+    <option value="nee">Nee</option>
+  </select>
 
-<br><br>
+  <button onclick="berekenPrijs()" style="
+    margin-top:1.2rem;
+    padding:0.6rem 1.2rem;
+    border:none;
+    border-radius:999px;
+    background:#1b5e20;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+  ">
+    Bereken bedrag
+  </button>
 
-<label>
-  <strong>Kom je in aanmerking voor een stadspas / lage inkomensregeling?</strong>
-</label>
-<select id="stadspas">
-  <option value="">-- kies --</option>
-  <option value="ja">Ja</option>
-  <option value="nee">Nee</option>
-</select>
-
-<br><br>
-
-<button onclick="berekenPrijs()">Bereken</button>
-
-<p id="uitkomst" style="margin-top:1rem; font-weight:bold;"></p>
+  <div id="uitkomst" style="
+    margin-top:1.2rem;
+    padding:1rem;
+    border-radius:10px;
+    background:#f4f6f8;
+    font-weight:600;
+    display:none;
+  "></div>
+</div>
 
 <script>
 function berekenPrijs() {
@@ -253,21 +264,26 @@ function berekenPrijs() {
   const uitkomst = document.getElementById("uitkomst");
 
   if (!leeftijd || !stadspas) {
-    uitkomst.textContent = "Vul alle keuzes in.";
+    uitkomst.style.display = "block";
+    uitkomst.textContent = "Kies beide opties om het bedrag te zien.";
     return;
   }
 
   let prijs = 0;
 
-  if (leeftijd === "kind") {
-    prijs = stadspas === "ja" ? 20 : 75;
-  }
-
   if (leeftijd === "volwassene") {
-    prijs = stadspas === "ja" ? 31.75 : 125;
+    prijs = stadspas === "ja" ? 31.25 : 125;
   }
 
-  uitkomst.textContent = "Je betaalt €" + prijs + " per maand.";
+  if (leeftijd === "kind") {
+    prijs = stadspas === "ja" ? 18.75 : 75;
+  }
+
+  uitkomst.style.display = "block";
+  uitkomst.innerHTML = `
+    Je betaalt <strong>€${prijs.toFixed(2)}</strong> per maand.
+    <br><small>Indicatief bedrag op basis van het voorgestelde plan.</small>
+  `;
 }
 </script>
 
