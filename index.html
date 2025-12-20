@@ -9,9 +9,9 @@
 
   <style>
     :root {
-      --red: #b71c1c;
-      --green: #1b5e20;
-      --bg: #f4f6f8;
+      --red: #d32f2f;   /* kerst-rood */
+      --green: #388e3c; /* kerst-groen */
+      --bg: #fffaf0;    /* warme achtergrond */
       --card: #ffffff;
       --text: #1f2933;
     }
@@ -116,6 +116,26 @@
       padding: 1.2rem;
       font-size: 0.9rem;
     }
+
+    /* Sneeuwvlokken */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      z-index: 9999;
+      pointer-events: none;
+      color: white;
+      font-size: 1em;
+      user-select: none;
+      animation-name: fall;
+      animation-duration: 10s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
   </style>
 </head>
 
@@ -123,7 +143,7 @@
 
 <header>
 <div class="brand">
-  <h2>BBOVNL</h2>
+  <h2>BBOVNL 🎄</h2>
   <span>Beter betaalbaar openbaar vervoer in Nederland</span>
 </div>
   <nav>
@@ -136,7 +156,6 @@
     <button onclick="showPage('voordelen', this)">de voordelen van de BBOVNL-pas</button>
   </nav>
 
-  <!-- NIEUWSBRIEF KNOP -->
   <a href="https://forms.gle/SjxP6AzxkQTkunhd6"
      target="_blank"
      class="header-cta">
@@ -147,7 +166,7 @@
 <main>
 
 <section id="home" class="page active">
-  <h1>Welkom bij BBOVNL</h1>
+  <h1>Welkom bij BBOVNL 🎅</h1>
   <div class="card">
 
     <p>"BBOVNL" staat voor: Beter betaalbaarder openbaar vervoer (voor) nederland.</p>
@@ -158,8 +177,11 @@
 
   </div>
 </section>
+
 <!---ons plan--->
-<section id="plan" class="page">  <h1>ons plan</h1> <div class="card">
+<section id="plan" class="page">  
+  <h1>ons plan 🎁</h1> 
+  <div class="card">
 
       <div class="card">
       <h3>Jongeren (12–18)</h3>
@@ -206,7 +228,7 @@
 </section>
 
 <section id="stappen" class="page">
-  <h1>onze stappen naar beter OV</h1>
+  <h1>onze stappen naar beter OV 🎄</h1>
   <div class="card">website bouwen</div>
   <div class="notice">socials aanmaken - *hier zijn wij nu*</div>
   <div class="card">politiek Den Haag informeren (bijv. D66,Glpvda,Pvv,vvd etc)</div>
@@ -218,7 +240,7 @@
 </section>
 
 <section id="calc" class="page">
-<h1>Hoeveel betaal je per maand?</h1>
+<h1>Hoeveel betaal je per maand? ❄️</h1>
 <p>Beantwoord de vragen hieronder en zie direct wat jouw maandbedrag zou zijn.</p>
 
 <div class="card">
@@ -243,7 +265,7 @@
     padding:0.6rem 1.2rem;
     border:none;
     border-radius:999px;
-    background:#1b5e20;
+    background:#388e3c;
     color:white;
     font-weight:600;
     cursor:pointer;
@@ -319,7 +341,7 @@ function berekenPrijs() {
 </section>
 
 <section id="petitie" class="page">
-  <h1>petitie</h1>
+  <h1>petitie 🎁</h1>
   <div class="notice">
     er komt binnekort een petitie!!  
     Je kunt je alvast inschrijven voor de nieuwsbrief via de knop bovenaan.
@@ -358,7 +380,7 @@ function berekenPrijs() {
 </section>
 
 <section id="contact" class="page">
-  <h1>Contact</h1>
+  <h1>Contact 🎄</h1>
   <div class="card">
     <p><strong>Email:</strong> BBOVNL@outlook.com</p>
     <p><strong>TikTok:</strong> @BBOVNL</p>
@@ -366,7 +388,7 @@ function berekenPrijs() {
 </section>
 
 <section id="voordelen" class="page">
-  <h1>de voordelen van de BBOVNL-pas</h1>
+  <h1>de voordelen van de BBOVNL-pas ❄️</h1>
 
 <p>
 Dit plan maakt het openbaar vervoer in Nederland eerlijker, eenvoudiger en betaalbaarder.
@@ -445,7 +467,6 @@ Hieronder zie je wat dit betekent voor reizigers, gezinnen en de samenleving.
     <p>Mensen kunnen makkelijker reizen voor werk, studie en afspraken.</p>
   </div>
 
-
   <div class="card">
     <h3>OV wordt aantrekkelijker</h3>
     <p>Vaste lage prijzen maken openbaar vervoer een logischere keuze.</p>
@@ -453,12 +474,9 @@ Hieronder zie je wat dit betekent voor reizigers, gezinnen en de samenleving.
 
 </div>
 
-
-
 </section>
 
 </main>
-
 
 <script>
   function showPage(id, btn) {
@@ -473,7 +491,24 @@ Hieronder zie je wat dit betekent voor reizigers, gezinnen en de samenleving.
 
     window.scrollTo(0, 0);
   }
+
+  // Sneeuwvlokken
+  const sneeuwAantal = 50;
+  for (let i = 0; i < sneeuwAantal; i++) {
+    const span = document.createElement('span');
+    span.className = 'snowflake';
+    span.textContent = '❄';
+    span.style.left = Math.random() * 100 + 'vw';
+    span.style.fontSize = (Math.random() * 20 + 10) + 'px';
+    span.style.animationDuration = (Math.random() * 5 + 5) + 's';
+    span.style.opacity = Math.random();
+    document.body.appendChild(span);
+  }
 </script>
+
+<footer>
+  © 2025 BBOVNL - Beter betaalbaar openbaar vervoer in Nederland 🎄
+</footer>
 
 </body>
 </html>
