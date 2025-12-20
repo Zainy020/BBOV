@@ -24,46 +24,24 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      padding-bottom: 140px; /* ruimte voor vaste header onder */
     }
 
-    /* ===== HEADER (ALTIJD ONDER) ===== */
     header {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      z-index: 9999;
       background: linear-gradient(90deg, var(--red), var(--green));
       color: white;
       padding: 1rem 1.5rem;
       position: sticky;
       top: 0;
       z-index: 100;
-      padding: 0.8rem 1rem;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 0.6rem;
-      box-shadow: 0 -6px 20px rgba(0,0,0,0.3);
     }
 
     header h2 {
-    .brand {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
-    }
-
-    .brand h2 {
       margin: 0;
       font-size: 1.3rem;
-      font-size: 1.1rem;
-    }
-
-    .brand span {
-      font-size: 0.75rem;
-      opacity: 0.9;
     }
 
     nav {
@@ -77,11 +55,9 @@
       border: none;
       color: white;
       padding: 0.45rem 0.9rem;
-      padding: 0.4rem 0.75rem;
       border-radius: 999px;
       cursor: pointer;
       font-size: 0.9rem;
-      font-size: 0.85rem;
     }
 
     nav button.active {
@@ -95,31 +71,11 @@
       background: white;
       color: #111;
       padding: 0.5rem 1.2rem;
-      padding: 0.45rem 1rem;
       border-radius: 999px;
       text-decoration: none;
       font-weight: 700;
       font-size: 0.9rem;
-      font-size: 0.85rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     }
-
-    .header-cta:hover {
-      transform: translateY(-1px);
-    }
-
-    @media (max-width: 700px) {
-      header {
-        justify-content: center;
-      }
-
-      .header-cta {
-        width: 100%;
-        text-align: center;
-      }
-    }
-
-    /* ===== CONTENT ===== */
 
     main {
       max-width: 1100px;
@@ -167,10 +123,6 @@
 
 <header>
   <h2>Beter Betaalbaarder openbaar vervoer NL</h2>
-  <div class="brand">
-    <h2>BBOVNL</h2>
-    <span>Beter betaalbaar openbaar vervoer in Nederland</span>
-  </div>
 
   <nav>
     <button onclick="showPage('home', this)" class="active">Home</button>
@@ -178,13 +130,8 @@
     <button onclick="showPage('stappen', this)">hoe gaan we dit bereiken?</button>
     <button onclick="showPage('calc', this)">calculator</button>
     <button onclick="showPage('petitie', this)">petitie</button>
-    <button onclick="showPage('plan', this)">Plan</button>
-    <button onclick="showPage('stappen', this)">Stappen</button>
-    <button onclick="showPage('calc', this)">Calculator</button>
-    <button onclick="showPage('petitie', this)">Petitie</button>
     <button onclick="showPage('contact', this)">Contact</button>
     <button onclick="showPage('voordelen', this)">de voordelen van de BBOVNL-pas</button>
-    <button onclick="showPage('voordelen', this)">Voordelen</button>
   </nav>
 
   <!-- NIEUWSBRIEF KNOP -->
@@ -192,8 +139,6 @@
      target="_blank"
      class="header-cta">
      schrijf je in voor de nieuwsbrief
-  <a href="https://forms.gle/SjxP6AzxkQTkunhd6" target="_blank" class="header-cta">
-    Nieuwsbrief
   </a>
 </header>
 
@@ -202,13 +147,13 @@
 <section id="home" class="page active">
   <h1>Welkom bij BBOVNL</h1>
   <div class="card">
-    
+
     <p>"BBOVNL" staat voor: Beter betaalbaarder openbaar vervoer (voor) nederland.</p>
-    
+
     <p>Wij zorgen er voor dat het ov goedkoper wordt voor de Nederlander die dagelijks het OV pakt.</p>
-    
+
     <p>BBOVNL is een onafhankelijk initiatief van OV-gebruikers. Geen politieke partij, geen commercieel doel.</p>
-    
+
   </div>
 </section>
 <!---ons plan--->
@@ -254,7 +199,7 @@
       <div class="card">
       <h3>bij welke bedrijven kan ik inchecken?</h3>
       <p>dit plan moet je toegang geven tot al het OV in Nederland, van NS tot GVB of RET en zelfs RNET.</p>
-  
+
   </div>
 </section>
 
@@ -420,6 +365,15 @@ function berekenPrijs() {
 
 <section id="voordelen" class="page">
   <h1>de voordelen van de BBOVNL-pas</h1>
+
+
+<h1>De voordelen van beter en betaalbaar openbaar vervoer</h1>
+
+<p>
+Dit plan maakt het openbaar vervoer in Nederland eerlijker, eenvoudiger en betaalbaarder.
+Hieronder zie je wat dit betekent voor reizigers, gezinnen en de samenleving.
+</p>
+
 <div class="grid">
 
   <div class="card">
@@ -492,6 +446,10 @@ function berekenPrijs() {
     <p>Mensen kunnen makkelijker reizen voor werk, studie en afspraken.</p>
   </div>
 
+  <div class="card">
+    <h3>Meer reizigers, sterker OV</h3>
+    <p>Meer gebruik kan leiden tot betere dienstregelingen.</p>
+  </div>
 
   <div class="card">
     <h3>OV wordt aantrekkelijker</h3>
@@ -500,18 +458,14 @@ function berekenPrijs() {
 
 </div>
 
-  
-  
+
+
 </section>
-<!-- REST VAN JE WEBSITE IS ONGEWIJZIGD -->
-<!-- (plan, stappen, calculator, petitie, contact, voordelen) -->
-<!-- exact zoals jij ze stuurde -->
 
 </main>
 
 <footer>
   <p>Alle rechten voorbehouden – BBOVNL, om in te schrijven, zie rechts-boven in beeld</p>
-  <p>Alle rechten voorbehouden – BBOVNL</p>
 </footer>
 
 <script>
