@@ -224,6 +224,7 @@
   <select id="leeftijd">
     <option value="">-- kies --</option>
     <option value="onder12">Onder de 12</option>
+    <option value="student">Student (alle leeftijden)</option>
     <option value="kind">Kind / jongere (12–18)</option>
     <option value="volwassene">Volwassene (18+)</option>
   </select>
@@ -270,12 +271,21 @@ function berekenPrijs() {
     return;
   }
 
-  // Onder de 12 = altijd gratis
+  // Altijd gratis
   if (leeftijd === "onder12") {
     uitkomst.style.display = "block";
     uitkomst.innerHTML = `
       Je betaalt <strong>€0,00</strong> per maand.
       <br><small>Gratis reizen voor kinderen onder de 12.</small>
+    `;
+    return;
+  }
+
+  if (leeftijd === "student") {
+    uitkomst.style.display = "block";
+    uitkomst.innerHTML = `
+      Je betaalt <strong>€0,00</strong> per maand.
+      <br><small>Gratis reizen met het studentenreisproduct.</small>
     `;
     return;
   }
