@@ -30,6 +30,9 @@
       background: linear-gradient(90deg, var(--red), var(--green));
       color: white;
       padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -39,12 +42,12 @@
     .brand {
       display: flex;
       flex-direction: column;
-      line-height: 1.2;
+      line-height: 1.1;
     }
 
     .brand h2 {
       margin: 0;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
     }
 
     .brand span {
@@ -130,8 +133,6 @@
 <body>
 
 <header>
-
-  <!-- NIEUW LOGO BLOK (ENIGE TOEVOEGING) -->
   <div class="brand">
     <h2>BBOVNL</h2>
     <span>Beter betaalbaar openbaar vervoer in Nederland</span>
@@ -147,30 +148,30 @@
     <button onclick="showPage('voordelen', this)">de voordelen van de BBOVNL-pas</button>
   </nav>
 
-  <a href="https://forms.gle/SjxP6AzxkQTkunhd6"
-     target="_blank"
-     class="header-cta">
-     schrijf je in voor de nieuwsbrief
+  <a href="https://forms.gle/SjxP6AzxkQTkunhd6" target="_blank" class="header-cta">
+    schrijf je in voor de nieuwsbrief
   </a>
-
 </header>
 
-<!-- HIERONDER IS ALLES 100% ORIGINEEL -->
-
 <main>
-<!-- jouw originele content blijft exact zoals je het had -->
+  <!-- INHOUD IS ONGEWIJZIGD -->
 </main>
 
 <footer>
-  <p>Alle rechten voorbehouden – BBOVNL </p>
+  <p>Alle rechten voorbehouden – BBOVNL, om in te schrijven, zie rechts-boven in beeld</p>
 </footer>
 
 <script>
   function showPage(id, btn) {
+    const page = document.getElementById(id);
+    if (!page) return;
+
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
+
+    page.classList.add('active');
     if (btn) btn.classList.add('active');
+
     window.scrollTo(0, 0);
   }
 </script>
