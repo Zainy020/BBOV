@@ -33,10 +33,14 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem;
     }
 
     header h2 {
-      margin: 0 0 0.5rem 0;
+      margin: 0;
       font-size: 1.3rem;
     }
 
@@ -54,18 +58,23 @@
       border-radius: 999px;
       cursor: pointer;
       font-size: 0.9rem;
-      transition: background 0.25s, transform 0.15s;
-    }
-
-    nav button:hover {
-      background: rgba(255,255,255,0.35);
-      transform: translateY(-1px);
     }
 
     nav button.active {
       background: white;
       color: #111;
       font-weight: 600;
+    }
+
+    .header-cta {
+      margin-left: auto;
+      background: white;
+      color: #111;
+      padding: 0.5rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
     }
 
     main {
@@ -99,17 +108,6 @@
       font-weight: 500;
     }
 
-    .cta {
-      display: inline-block;
-      margin-top: 1rem;
-      background: linear-gradient(90deg, var(--red), var(--green));
-      color: white;
-      padding: 0.7rem 1.4rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
     footer {
       margin-top: 3rem;
       background: linear-gradient(90deg, var(--red), var(--green));
@@ -125,16 +123,23 @@
 
 <header>
   <h2>Beter Betaalbaarder openbaar vervoer NL</h2>
+
   <nav>
     <button onclick="showPage('home', this)" class="active">Home</button>
     <button onclick="showPage('plan', this)">ons plan</button>
     <button onclick="showPage('stappen', this)">hoe gaan we dit bereiken?</button>
     <button onclick="showPage('calc', this)">calculator</button>
     <button onclick="showPage('petitie', this)">petitie</button>
-    <button onclick="showPage('nieuwsbrief', this)">nieuwsbrief</button>
     <button onclick="showPage('contact', this)">Contact</button>
     <button onclick="showPage('voordelen', this)">de voordelen van de BBOVNL-pas</button>
   </nav>
+
+  <!-- NIEUWSBRIEF KNOP -->
+  <a href="https://forms.gle/SjxP6AzxkQTkunhd6"
+     target="_blank"
+     class="header-cta">
+     schrijf je in voor de nieuwsbrief
+  </a>
 </header>
 
 <main>
@@ -147,23 +152,30 @@
   </div>
 </section>
 
+<section id="plan" class="page">
+  <h1>ons plan kort samengevat</h1>
+  <div class="card">
+    <p>Dit plan maakt het OV betaalbaarder en duidelijker voor iedereen.</p>
+  </div>
+</section>
+
+<section id="stappen" class="page">
+  <h1>onze stappen naar beter OV</h1>
+  <div class="notice">website bouwen – *HIER ZIJN WIJ NU*</div>
+</section>
+
+<section id="calc" class="page">
+  <h1>hoeveel betaal je permaand als je zo'n abbonement wil?</h1>
+  <div class="card">
+    <p>Overzicht volgt.</p>
+  </div>
+</section>
+
 <section id="petitie" class="page">
   <h1>petitie</h1>
   <div class="notice">
-    er komt binnekort een petitie!! wil je up-to-date blijven?  
-    Je kunt je nu al inschrijven voor de nieuwsbrief.
-  </div>
-  <a class="cta" onclick="showPage('nieuwsbrief', this)">naar nieuwsbrief</a>
-</section>
-
-<section id="nieuwsbrief" class="page">
-  <h1>Nieuwsbrief</h1>
-  <div class="card">
-    <p>Wil je op de hoogte blijven van de petitie, updates en stappen van BBOVNL?</p>
-    <p>Schrijf je dan in voor onze nieuwsbrief.</p>
-    <a class="cta" href="https://forms.gle/SjxP6AzxkQTkunhd6" target="_blank">
-      inschrijven voor nieuwsbrief
-    </a>
+    er komt binnekort een petitie!!  
+    Je kunt je alvast inschrijven voor de nieuwsbrief via de knop bovenaan.
   </div>
 </section>
 
@@ -175,6 +187,13 @@
   </div>
 </section>
 
+<section id="voordelen" class="page">
+  <h1>de voordelen van de BBOVNL-pas</h1>
+  <div class="card">
+    <p>Overzicht van voordelen volgt.</p>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -183,13 +202,18 @@
 
 <script>
   function showPage(id, btn) {
+    const page = document.getElementById(id);
+    if (!page) return;
+
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
+
+    page.classList.add('active');
     if (btn) btn.classList.add('active');
+
+    window.scrollTo(0, 0);
   }
 </script>
 
 </body>
 </html>
-
