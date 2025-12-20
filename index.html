@@ -149,12 +149,11 @@
   <nav>
     <button onclick="showPage('home', this)" class="active">Home</button>
     <button onclick="showPage('plan', this)">ons plan</button>
-    <button onclick="showPage('stappen', this)">hoe gaan we dit bereiken?</button>
+    <button onclick="showPage('stappen', this)">stappenplan</button>
     <button onclick="showPage('calc', this)">calculator</button>
     <button onclick="showPage('petitie', this)">petitie</button>
     <button onclick="showPage('contact', this)">Contact</button>
-    <button onclick="showPage('voordelen', this)">de voordelen van de BBOVNL-pas</button>
-    <button onclick="showPage('kosten', this)">kosten spel</button>
+    <button onclick="showPage('voordelen', this)">voordelen van ons plan</button>
   </nav>
 
   <a href="https://forms.gle/SjxP6AzxkQTkunhd6"
@@ -478,67 +477,7 @@ Hieronder zie je wat dit betekent voor reizigers, gezinnen en de samenleving.
 </section>
 
 
-  <section id="kosten" class="page">
-  <h1>Wat kost dit de overheid?</h1>
-  <p>Vul hieronder in hoeveel iemand betaalt per maand en hoeveel mensen dit gebruiken, dan zie je wat de overheid moet bijpassen.</p>
 
-  <div class="card">
-    <label><strong>Maandbedrag reiziger (€)</strong></label>
-    <input type="number" id="maandbedrag" placeholder="bijv. 100" />
-
-    <label style="margin-top:1rem;"><strong>Aantal reizigers</strong></label>
-    <input type="number" id="aantal" placeholder="bijv. 1000000" />
-
-    <button onclick="berekenKosten()" style="
-      margin-top:1.2rem;
-      padding:0.6rem 1.2rem;
-      border:none;
-      border-radius:999px;
-      background:#1b5e20;
-      color:white;
-      font-weight:600;
-      cursor:pointer;
-    ">
-      Bereken kosten voor overheid
-    </button>
-
-    <div id="uitkomstKosten" style="
-      margin-top:1.2rem;
-      padding:1rem;
-      border-radius:10px;
-      background:#f4f6f8;
-      font-weight:600;
-      display:none;
-    "></div>
-  </div>
-
-  <script>
-    function berekenKosten() {
-      const bedrag = parseFloat(document.getElementById("maandbedrag").value);
-      const aantal = parseInt(document.getElementById("aantal").value);
-      const uitkomst = document.getElementById("uitkomstKosten");
-
-      if(isNaN(bedrag) || isNaN(aantal)) {
-        uitkomst.style.display = "block";
-        uitkomst.textContent = "Vul een geldig bedrag en aantal in.";
-        return;
-      }
-
-      const normaalBedrag = 125; // voorbeeld: wat een volwassene normaal betaalt
-      const subsidie = normaalBedrag - bedrag;
-      const totaleKosten = subsidie * aantal;
-
-      uitkomst.style.display = "block";
-      uitkomst.innerHTML = `
-        <p>Normaal bedrag: €${normaalBedrag.toFixed(2)}</p>
-        <p>Betaald door reiziger: €${bedrag.toFixed(2)}</p>
-        <p>Subsidie door overheid per persoon: €${subsidie.toFixed(2)}</p>
-        <p>Totale kosten voor de overheid: <strong>€${totaleKosten.toLocaleString('nl-NL')}</strong> per maand</p>
-        <p>Jaarlijks: <strong>€${(totaleKosten*12).toLocaleString('nl-NL')}</strong></p>
-      `;
-    }
-  </script>
-</section>
 
   
 </main>
