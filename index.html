@@ -94,11 +94,34 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.2rem;
+    }
+
     .card {
       background: var(--card);
       padding: 1.3rem;
       border-radius: 14px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .card p {
+      margin: 0.4rem 0;
     }
 
     .notice {
@@ -109,13 +132,6 @@
       font-weight: 500;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.2rem;
-      margin-top: 1.2rem;
-    }
-
     footer {
       margin-top: 3rem;
       background: linear-gradient(90deg, var(--red), var(--green));
@@ -123,12 +139,6 @@
       text-align: center;
       padding: 1.2rem;
       font-size: 0.9rem;
-    }
-
-    @media (max-width: 700px) {
-      header h2 {
-        font-size: 1.1rem;
-      }
     }
   </style>
 </head>
@@ -151,52 +161,64 @@
 <main>
 
 <section id="home" class="page active">
-  <div class="card">
-    <h1>Welkom bij BBOVNL</h1>
-    <p>"BBOVNL" staat voor: Beter betaalbaarder openbaar vervoer (voor) nederland.</p>
-    <p>Wij zorger er voor dat het ov goedkoper wordt voor de Nederlander die dagelijks het OV pakt.</p>
-    <p>gebruik jij niet dagelijks het OV maar wil je dit gaan doen? de auto vaker thuis laten en CO2 uitstoot tegen gaan? steun ons dan</p>
-    <p>Wil je meer t weten komen over ons plan? Check dan "plan"</p>
+  <h1>Welkom bij BBOVNL</h1>
+  <div class="grid">
+    <div class="card">
+      <h3>Wat is BBOVNL?</h3>
+      <p>"BBOVNL" staat voor: Beter betaalbaarder openbaar vervoer (voor) nederland.</p>
+    </div>
+
+    <div class="card">
+      <h3>Ons doel</h3>
+      <p>Wij zorgen er voor dat het ov goedkoper wordt voor de Nederlander die dagelijks het OV pakt.</p>
+    </div>
+
+    <div class="card">
+      <h3>Waarom dit nodig is</h3>
+      <p>Gebruik jij niet dagelijks het OV maar wil je dit gaan doen? De auto vaker thuis laten en CO2 uitstoot tegen gaan? Steun ons dan.</p>
+    </div>
+
+    <div class="card">
+      <h3>Meer weten?</h3>
+      <p>Wil je meer te weten komen over ons plan? Check dan "plan".</p>
+    </div>
   </div>
 </section>
 
 <section id="plan" class="page">
   <h1>ons plan kort samengevat</h1>
   <div class="grid">
+
     <div class="card">
-      <h3>ons plan voor Minderjarige (12-18)</h3>
+      <h3>Jongeren (12–18)</h3>
       <p>Voor 12-18 jarige willen wij het ov veel duidelijker en betaalbaarder maken.</p>
+      <p>De jongeren pas is een abbonement waarmee je altijd en overal kunt inchecken.</p>
     </div>
 
     <div class="card">
-      <h3>De jongeren pas (12-18)</h3>
-      <p>Een abbonement die je hoelaat en waar je maar wil laat inchecken.</p>
+      <h3>Volwassenen (18+)</h3>
+      <p>Hetzelfde idee als een jongeren pas, maar dan iets duurder.</p>
     </div>
 
     <div class="card">
-      <h3>De volwassene pas (18+)</h3>
-      <p>het zelfde idee als een "jongeren pas" maar dan iets duurder.</p>
+      <h3>Kinderen onder de 12</h3>
+      <p>Kinderen onder de 12 reizen meestal met iemand die al heeft betaald.</p>
+      <p>Daarom willen wij dit gratis maken.</p>
+      <p>Dit bestaat al in sommige gemeenten zoals Amsterdam.</p>
     </div>
 
     <div class="card">
-      <h3>voor reizigers onder de 12</h3>
-      <p>kinderen onder de 12 reizen meestal al met iemand die heeft betaald zoals: een ouder, broer of zus.</p>
-      <p>daarom willen wij dit voor kinderen onder de 12 gratis maken.</p>
-      <p>dit is er al in sommige gemeente zoals: Amsterdam</p>
+      <h3>Gezinnen met een laag inkomen</h3>
+      <p>Voor gezinnen met een laag inkomen willen wij een korting van 75% aanbieden.</p>
     </div>
 
     <div class="card">
-      <h3>gezinnen met een laag inkomen</h3>
-      <p>voor gezinnen met een laag inkomen willen wij een korting van 75% aanbieden.</p>
-    </div>
-
-    <div class="card">
-      <h3>de prijzen voor deze passen</h3>
-      <p>de jongeren pas (12-18) 75 euro per maand</p>
-      <p>de volwassene pas (18+) 125 euro per maand</p>
-      <p>voor jonge reizigers onder de 12: gratis</p>
-      <p>gezinnen met een laag inkomen: 75% korting</p>
-      <p>student: studenten OV</p>
+      <h3>Prijzen</h3>
+      <p>Jongeren pas (12–18): 75 euro per maand</p>
+      <p>Volwassene pas (18+): 125 euro per maand</p>
+      <p>Kinderen onder de 12: gratis</p>
+      <p>Gezinnen met laag inkomen: 75% korting</p>
+      <p>Student: studenten OV</p>
     </div>
 
     <div class="card">
@@ -208,13 +230,14 @@
       <h3>bij welke bedrijven kan ik inchecken?</h3>
       <p>dit plan moet je toegang geven tot al het OV in Nederland, van NS tot GVB of RET en zelfs RNET.</p>
     </div>
+
   </div>
 </section>
 
 <section id="stappen" class="page">
   <h1>onze stappen naar beter OV</h1>
   <div class="grid">
-    <div class="notice">website bouwen *HIER ZIJN WIJ NU*</div>
+    <div class="notice">website bouwen – *HIER ZIJN WIJ NU*</div>
     <div class="card">socials maken</div>
     <div class="card">mails sturen naar partijen zoals: D66, glpvda, cda, vvd, pvv, sp, en alle andere partijen die willen helpen</div>
     <div class="card">petitie starten</div>
@@ -229,34 +252,52 @@
 <section id="calc" class="page">
   <h1>hoeveel betaal je permaand als je zo'n abbonement wil?</h1>
   <div class="grid">
-    <div class="notice">volwassenen of kind?</div>
-    <div class="card">-> kind kom jij in aanmerking voor een stadspas</div>
-    <div class="card">-> ja 20 euro</div>
-    <div class="card">-> nee 75 euro</div>
-    <div class="card">-> volwassenen kom jij in aanmerking voor een stadpas</div>
-    <div class="card">-> ja 31,75 euro</div>
-    <div class="card">-> nee 125 euro</div>
+    <div class="card">
+      <h3>Kind</h3>
+      <p>Kom jij in aanmerking voor een stadspas?</p>
+      <p>Ja: 20 euro</p>
+      <p>Nee: 75 euro</p>
+    </div>
+
+    <div class="card">
+      <h3>Volwassene</h3>
+      <p>Kom jij in aanmerking voor een stadspas?</p>
+      <p>Ja: 31,75 euro</p>
+      <p>Nee: 125 euro</p>
+    </div>
   </div>
 </section>
 
 <section id="petitie" class="page">
   <h1>petitie</h1>
-  <div class="notice">er komt binnekort een petitie!! wil je up-to-date blijven? schrijf je dan in voor de nieuwsbrief</div>
+  <div class="notice">
+    er komt binnekort een petitie!! wil je up-to-date blijven? schrijf je dan in voor de nieuwsbrief
+  </div>
 </section>
 
 <section id="contact" class="page">
   <h1>Contact</h1>
   <div class="card">
     <p><strong>Email:</strong> BBOVNL@outlook.com</p>
-    <p><strong>TikTok:</strong>@BBOVNL</p>
+    <p><strong>TikTok:</strong> @BBOVNL</p>
   </div>
 </section>
 
 <section id="voordelen" class="page">
   <h1>ons plan kort samengevat</h1>
   <div class="grid">
-    <!-- alle cards exact hetzelfde als jouw versie -->
-    <!-- inhoud bewust niet aangepast -->
+
+    <div class="card"><h3>OV wordt betaalbaarder voor iedereen</h3><p>Geen hoge maandkosten meer voor mensen die dagelijks reizen.</p></div>
+    <div class="card"><h3>Eén abonnement voor heel Nederland</h3><p>Geen gedoe meer met verschillende vervoerders.</p></div>
+    <div class="card"><h3>Jongeren (12–18) worden beter ondersteund</h3><p>Omdat zij vaak geen alternatief hebben zoals een auto.</p></div>
+    <div class="card"><h3>Gratis OV voor kinderen onder 12</h3><p>Dat helpt gezinnen en stimuleert vroeg OV-gebruik.</p></div>
+    <div class="card"><h3>Extra korting voor lage inkomens</h3><p>OV blijft toegankelijk, ook als je minder te besteden hebt.</p></div>
+    <div class="card"><h3>Minder stress over reiskosten</h3><p>Je weet precies wat je per maand betaalt.</p></div>
+    <div class="card"><h3>Meer mensen laten de auto staan</h3><p>Goed voor het milieu én minder files.</p></div>
+    <div class="card"><h3>Lagere CO₂-uitstoot</h3><p>Duurzamer vervoer betekent een schonere toekomst.</p></div>
+    <div class="card"><h3>OV wordt duidelijker en eenvoudiger</h3><p>Geen ingewikkelde tarieven of zones meer.</p></div>
+    <div class="card"><h3>Meer kansengelijkheid</h3><p>Reiskosten bepalen minder of je ergens kunt komen.</p></div>
+
   </div>
 </section>
 
