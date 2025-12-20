@@ -24,34 +24,45 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      padding-bottom: 140px; /* ruimte voor vaste header onder */
     }
 
+    /* ===== HEADER (ALTIJD ONDER) ===== */
     header {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
       background: linear-gradient(90deg, var(--red), var(--green));
       color: white;
       padding: 1rem 1.5rem;
       position: sticky;
       top: 0;
       z-index: 100;
+      padding: 0.8rem 1rem;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 0.6rem;
+      box-shadow: 0 -6px 20px rgba(0,0,0,0.3);
     }
 
+    header h2 {
     .brand {
       display: flex;
       flex-direction: column;
-      line-height: 1.1;
+      line-height: 1.2;
     }
 
     .brand h2 {
       margin: 0;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
+      font-size: 1.1rem;
     }
 
     .brand span {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       opacity: 0.9;
     }
 
@@ -66,9 +77,11 @@
       border: none;
       color: white;
       padding: 0.45rem 0.9rem;
+      padding: 0.4rem 0.75rem;
       border-radius: 999px;
       cursor: pointer;
       font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     nav button.active {
@@ -82,11 +95,31 @@
       background: white;
       color: #111;
       padding: 0.5rem 1.2rem;
+      padding: 0.45rem 1rem;
       border-radius: 999px;
       text-decoration: none;
       font-weight: 700;
       font-size: 0.9rem;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     }
+
+    .header-cta:hover {
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 700px) {
+      header {
+        justify-content: center;
+      }
+
+      .header-cta {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* ===== CONTENT ===== */
 
     main {
       max-width: 1100px;
@@ -133,6 +166,7 @@
 <body>
 
 <header>
+  <h2>Beter Betaalbaarder openbaar vervoer NL</h2>
   <div class="brand">
     <h2>BBOVNL</h2>
     <span>Beter betaalbaar openbaar vervoer in Nederland</span>
@@ -144,21 +178,340 @@
     <button onclick="showPage('stappen', this)">hoe gaan we dit bereiken?</button>
     <button onclick="showPage('calc', this)">calculator</button>
     <button onclick="showPage('petitie', this)">petitie</button>
+    <button onclick="showPage('plan', this)">Plan</button>
+    <button onclick="showPage('stappen', this)">Stappen</button>
+    <button onclick="showPage('calc', this)">Calculator</button>
+    <button onclick="showPage('petitie', this)">Petitie</button>
     <button onclick="showPage('contact', this)">Contact</button>
     <button onclick="showPage('voordelen', this)">de voordelen van de BBOVNL-pas</button>
+    <button onclick="showPage('voordelen', this)">Voordelen</button>
   </nav>
 
+  <!-- NIEUWSBRIEF KNOP -->
+  <a href="https://forms.gle/SjxP6AzxkQTkunhd6"
+     target="_blank"
+     class="header-cta">
+     schrijf je in voor de nieuwsbrief
   <a href="https://forms.gle/SjxP6AzxkQTkunhd6" target="_blank" class="header-cta">
-    schrijf je in voor de nieuwsbrief
+    Nieuwsbrief
   </a>
 </header>
 
 <main>
-  <!-- INHOUD IS ONGEWIJZIGD -->
+
+<section id="home" class="page active">
+  <h1>Welkom bij BBOVNL</h1>
+  <div class="card">
+    
+    <p>"BBOVNL" staat voor: Beter betaalbaarder openbaar vervoer (voor) nederland.</p>
+    
+    <p>Wij zorgen er voor dat het ov goedkoper wordt voor de Nederlander die dagelijks het OV pakt.</p>
+    
+    <p>BBOVNL is een onafhankelijk initiatief van OV-gebruikers. Geen politieke partij, geen commercieel doel.</p>
+    
+  </div>
+</section>
+<!---ons plan--->
+<section id="plan" class="page">  <h1>ons plan</h1> <div class="card">
+
+      <div class="card">
+      <h3>Jongeren (12–18)</h3>
+      <p>Voor 12-18 jarige willen wij het ov veel duidelijker en betaalbaarder maken.</p>
+      <p>De jongeren pas is een abbonement waarmee je altijd en overal kunt inchecken.</p>
+      </div>
+
+      <div class="card">
+      <h3>Volwassenen (18+)</h3>
+      <p>Hetzelfde idee als een jongeren pas, maar dan iets duurder.</p>
+      </div>
+
+      <div class="card">
+      <h3>Kinderen onder de 12</h3>
+      <p>Kinderen onder de 12 reizen meestal met iemand die al heeft betaald.</p>
+      <p>Daarom willen wij dit gratis maken.</p>
+      <p>Dit bestaat al in sommige gemeenten zoals Amsterdam.</p>
+      </div>
+
+      <div class="card">
+      <h3>Gezinnen met een laag inkomen</h3>
+      <p>Voor gezinnen met een laag inkomen willen wij een korting van 75% aanbieden.</p>
+      </div>
+
+      <div class="card">
+      <h3>Prijzen</h3>
+      <p>Jongeren pas (12–18): 75 euro per maand</p>
+      <p>Volwassene pas (18+): 125 euro per maand</p>
+      <p>Kinderen onder de 12: gratis</p>
+      <p>Gezinnen met laag inkomen: 75% korting</p>
+      <p>Student: studenten OV</p>
+      </div>
+
+      <div class="card">
+      <h3>studenten OV</h3>
+      <p>studenten ov moet blijven bestaan.</p>
+      </div>
+
+      <div class="card">
+      <h3>bij welke bedrijven kan ik inchecken?</h3>
+      <p>dit plan moet je toegang geven tot al het OV in Nederland, van NS tot GVB of RET en zelfs RNET.</p>
+  
+  </div>
+</section>
+
+<section id="stappen" class="page">
+  <h1>onze stappen naar beter OV</h1>
+  <div class="card">website bouwen</div>
+  <div class="notice">socials aanmaken - *hier zijn wij nu*</div>
+  <div class="card">politiek Den Haag informeren (bijv. D66,Glpvda,Pvv,vvd etc)</div>
+  <div class="card">petitie aanmaken</div>
+  <div class="card">petitie krijgt 40.000 handtekeningen op petitie.nl</div>
+  <div class="card">debat in de 2e kamer</div>
+  <div class="card">indien aangenomen, naar de 1e kamer</div>
+  <div class="card">indien aangenomen, afwachten)</div>
+</section>
+
+<section id="calc" class="page">
+<h1>Hoeveel betaal je per maand?</h1>
+<p>Beantwoord de vragen hieronder en zie direct wat jouw maandbedrag zou zijn.</p>
+
+<div class="card">
+  <label><strong>Leeftijdsgroep</strong></label>
+  <select id="leeftijd">
+    <option value="">-- kies --</option>
+    <option value="onder12">Onder de 12</option>
+    <option value="student">Student (alle leeftijden)</option>
+    <option value="kind">Kind / jongere (12–18)</option>
+    <option value="volwassene">Volwassene (18+)</option>
+  </select>
+
+  <label style="margin-top:1rem;"><strong>Heb je een stadspas / lage inkomensregeling?</strong></label>
+  <select id="stadspas">
+    <option value="">-- kies --</option>
+    <option value="ja">Ja</option>
+    <option value="nee">Nee</option>
+  </select>
+
+  <button onclick="berekenPrijs()" style="
+    margin-top:1.2rem;
+    padding:0.6rem 1.2rem;
+    border:none;
+    border-radius:999px;
+    background:#1b5e20;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+  ">
+    Bereken bedrag
+  </button>
+
+  <div id="uitkomst" style="
+    margin-top:1.2rem;
+    padding:1rem;
+    border-radius:10px;
+    background:#f4f6f8;
+    font-weight:600;
+    display:none;
+  "></div>
+</div>
+
+<script>
+function berekenPrijs() {
+  const leeftijd = document.getElementById("leeftijd").value;
+  const stadspas = document.getElementById("stadspas").value;
+  const uitkomst = document.getElementById("uitkomst");
+
+  if (!leeftijd) {
+    uitkomst.style.display = "block";
+    uitkomst.textContent = "Kies een leeftijdsgroep.";
+    return;
+  }
+
+  // Altijd gratis
+  if (leeftijd === "onder12") {
+    uitkomst.style.display = "block";
+    uitkomst.innerHTML = `
+      Je betaalt <strong>€0,00</strong> per maand.
+      <br><small>Gratis reizen voor kinderen onder de 12.</small>
+    `;
+    return;
+  }
+
+  if (leeftijd === "student") {
+    uitkomst.style.display = "block";
+    uitkomst.innerHTML = `
+      Je betaalt <strong>€0,00</strong> per maand.
+      <br><small>Gratis reizen met het studentenreisproduct.</small>
+    `;
+    return;
+  }
+
+  if (!stadspas) {
+    uitkomst.style.display = "block";
+    uitkomst.textContent = "Geef aan of je een stadspas hebt.";
+    return;
+  }
+
+  let prijs = 0;
+
+  if (leeftijd === "volwassene") {
+    prijs = stadspas === "ja" ? 31.25 : 125;
+  }
+
+  if (leeftijd === "kind") {
+    prijs = stadspas === "ja" ? 18.75 : 75;
+  }
+
+  uitkomst.style.display = "block";
+  uitkomst.innerHTML = `
+    Je betaalt <strong>€${prijs.toFixed(2)}</strong> per maand.
+    <br><small>Indicatief bedrag op basis van het voorgestelde plan.</small>
+  `;
+}
+</script>
+
+</section>
+
+<section id="petitie" class="page">
+  <h1>petitie</h1>
+  <div class="notice">
+    er komt binnekort een petitie!!  
+    Je kunt je alvast inschrijven voor de nieuwsbrief via de knop bovenaan.
+  </div>
+  <h1>Maak het openbaar vervoer betaalbaar met één landelijk OV-abonnement</h1>
+
+<h2>Korte beschrijving</h2>
+<p>
+  Het openbaar vervoer in Nederland is te duur en onduidelijk.
+  Wij pleiten voor één betaalbaar OV-abonnement waarmee iedereen in heel Nederland
+  onbeperkt kan reizen tegen een vaste prijs.
+  Dit maakt reizen eenvoudiger en eerlijker.
+</p>
+
+<h2>Gericht aan</h2>
+<p>Tweede Kamer der Staten-Generaal</p>
+
+<h2>Wij</h2>
+<p>Dagelijkse en regelmatige gebruikers van het openbaar vervoer in Nederland</p>
+
+<h2>Constateren dat</h2>
+<p>
+  Het openbaar vervoer in Nederland is voor veel mensen duur en complex.
+  Reizigers krijgen te maken met verschillende vervoerders, tarieven en abonnementen,
+  waardoor de kosten hoog en onoverzichtelijk zijn.
+  Dit maakt het OV minder toegankelijk voor mensen die afhankelijk zijn van openbaar vervoer
+  voor werk, school of dagelijkse reizen.
+</p>
+
+<h2>En verzoeken</h2>
+<p>
+  De Tweede Kamer om te onderzoeken hoe één landelijk, betaalbaar OV-abonnement kan worden ingevoerd,
+  waarmee reizigers onbeperkt gebruik kunnen maken van het openbaar vervoer in heel Nederland
+  tegen een vaste en betaalbare prijs.
+</p>
+</section>
+
+<section id="contact" class="page">
+  <h1>Contact</h1>
+  <div class="card">
+    <p><strong>Email:</strong> BBOVNL@outlook.com</p>
+    <p><strong>TikTok:</strong> @BBOVNL</p>
+  </div>
+</section>
+
+<section id="voordelen" class="page">
+  <h1>de voordelen van de BBOVNL-pas</h1>
+<div class="grid">
+
+  <div class="card">
+    <h3>OV wordt betaalbaarder voor iedereen</h3>
+    <p>Geen extreem hoge maandkosten meer voor mensen die dagelijks reizen.</p>
+  </div>
+
+  <div class="card">
+    <h3>Eén abonnement voor heel Nederland</h3>
+    <p>Geen gedoe meer met verschillende vervoerders zoals NS, GVB, RET of Arriva.</p>
+  </div>
+
+  <div class="card">
+    <h3>Duidelijkheid over kosten</h3>
+    <p>Je weet precies wat je elke maand betaalt, zonder verrassingen.</p>
+  </div>
+
+  <div class="card">
+    <h3>Jongeren (12–18) beter ondersteund</h3>
+    <p>Omdat zij vaak afhankelijk zijn van het openbaar vervoer.</p>
+  </div>
+
+  <div class="card">
+    <h3>Gratis reizen voor kinderen onder de 12</h3>
+    <p>Dit helpt gezinnen en stimuleert vroeg gebruik van het OV.</p>
+  </div>
+
+  <div class="card">
+    <h3>Extra korting voor lage inkomens</h3>
+    <p>Openbaar vervoer blijft toegankelijk voor iedereen.</p>
+  </div>
+
+  <div class="card">
+    <h3>Studenten OV blijft bestaan</h3>
+    <p>Het studentenreisproduct blijft gratis voor studenten van alle leeftijden.</p>
+  </div>
+
+  <div class="card">
+    <h3>Minder stress over reiskosten</h3>
+    <p>Geen ingewikkelde berekeningen of losse abonnementen meer.</p>
+  </div>
+
+  <div class="card">
+    <h3>Meer mensen laten de auto staan</h3>
+    <p>Dat zorgt voor minder files en een beter milieu.</p>
+  </div>
+
+  <div class="card">
+    <h3>Lagere CO₂-uitstoot</h3>
+    <p>Duurzamer vervoer draagt bij aan een schonere toekomst.</p>
+  </div>
+
+  <div class="card">
+    <h3>Meer kansengelijkheid</h3>
+    <p>Reiskosten bepalen minder of je naar werk, school of stage kunt.</p>
+  </div>
+
+  <div class="card">
+    <h3>Betere bereikbaarheid</h3>
+    <p>Scholen, banen en voorzieningen worden makkelijker bereikbaar.</p>
+  </div>
+
+  <div class="card">
+    <h3>Minder zwartrijden</h3>
+    <p>Eenvoudige en betaalbare tarieven zorgen voor minder overtredingen.</p>
+  </div>
+
+  <div class="card">
+    <h3>Goed voor de economie</h3>
+    <p>Mensen kunnen makkelijker reizen voor werk, studie en afspraken.</p>
+  </div>
+
+
+  <div class="card">
+    <h3>OV wordt aantrekkelijker</h3>
+    <p>Vaste lage prijzen maken openbaar vervoer een logischere keuze.</p>
+  </div>
+
+</div>
+
+  
+  
+</section>
+<!-- REST VAN JE WEBSITE IS ONGEWIJZIGD -->
+<!-- (plan, stappen, calculator, petitie, contact, voordelen) -->
+<!-- exact zoals jij ze stuurde -->
+
 </main>
 
 <footer>
   <p>Alle rechten voorbehouden – BBOVNL, om in te schrijven, zie rechts-boven in beeld</p>
+  <p>Alle rechten voorbehouden – BBOVNL</p>
 </footer>
 
 <script>
