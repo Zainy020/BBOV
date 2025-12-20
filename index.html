@@ -24,24 +24,17 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      padding-bottom: 140px; /* ruimte voor vaste header onder */
     }
 
-    /* ===== HEADER (ALTIJD ONDER) ===== */
+    /* ===== HEADER ===== */
     header {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      z-index: 9999;
       background: linear-gradient(90deg, var(--red), var(--green));
       color: white;
-      padding: 0.8rem 1rem;
+      padding: 1rem 1.5rem;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 0.6rem;
-      box-shadow: 0 -6px 20px rgba(0,0,0,0.3);
     }
 
     .brand {
@@ -52,11 +45,11 @@
 
     .brand h2 {
       margin: 0;
-      font-size: 1.1rem;
+      font-size: 1.4rem;
     }
 
     .brand span {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       opacity: 0.9;
     }
 
@@ -70,10 +63,10 @@
       background: rgba(255,255,255,0.15);
       border: none;
       color: white;
-      padding: 0.4rem 0.75rem;
+      padding: 0.45rem 0.9rem;
       border-radius: 999px;
       cursor: pointer;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
     }
 
     nav button.active {
@@ -86,30 +79,12 @@
       margin-left: auto;
       background: white;
       color: #111;
-      padding: 0.45rem 1rem;
+      padding: 0.5rem 1.2rem;
       border-radius: 999px;
       text-decoration: none;
       font-weight: 700;
-      font-size: 0.85rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      font-size: 0.9rem;
     }
-
-    .header-cta:hover {
-      transform: translateY(-1px);
-    }
-
-    @media (max-width: 700px) {
-      header {
-        justify-content: center;
-      }
-
-      .header-cta {
-        width: 100%;
-        text-align: center;
-      }
-    }
-
-    /* ===== CONTENT ===== */
 
     main {
       max-width: 1100px;
@@ -150,6 +125,13 @@
       padding: 1.2rem;
       font-size: 0.9rem;
     }
+
+    @media (max-width: 700px) {
+      .header-cta {
+        width: 100%;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 
@@ -163,16 +145,16 @@
 
   <nav>
     <button onclick="showPage('home', this)" class="active">Home</button>
-    <button onclick="showPage('plan', this)">Plan</button>
-    <button onclick="showPage('stappen', this)">Stappen</button>
-    <button onclick="showPage('calc', this)">Calculator</button>
-    <button onclick="showPage('petitie', this)">Petitie</button>
+    <button onclick="showPage('plan', this)">ons plan</button>
+    <button onclick="showPage('stappen', this)">hoe gaan we dit bereiken?</button>
+    <button onclick="showPage('calc', this)">calculator</button>
+    <button onclick="showPage('petitie', this)">petitie</button>
     <button onclick="showPage('contact', this)">Contact</button>
-    <button onclick="showPage('voordelen', this)">Voordelen</button>
+    <button onclick="showPage('voordelen', this)">de voordelen van de BBOVNL-pas</button>
   </nav>
 
   <a href="https://forms.gle/SjxP6AzxkQTkunhd6" target="_blank" class="header-cta">
-    Nieuwsbrief
+    schrijf je in voor de nieuwsbrief
   </a>
 </header>
 
@@ -187,9 +169,79 @@
   </div>
 </section>
 
-<!-- REST VAN JE WEBSITE IS ONGEWIJZIGD -->
-<!-- (plan, stappen, calculator, petitie, contact, voordelen) -->
-<!-- exact zoals jij ze stuurde -->
+<section id="plan" class="page">
+  <h1>ons plan</h1>
+  <div class="grid">
+    <div class="card">
+      <h3>Jongeren (12–18)</h3>
+      <p>Voor 12-18 jarige willen wij het ov veel duidelijker en betaalbaarder maken.</p>
+      <p>De jongeren pas is een abbonement waarmee je altijd en overal kunt inchecken.</p>
+    </div>
+
+    <div class="card">
+      <h3>Volwassenen (18+)</h3>
+      <p>Hetzelfde idee als een jongeren pas, maar dan iets duurder.</p>
+    </div>
+
+    <div class="card">
+      <h3>Kinderen onder de 12</h3>
+      <p>Kinderen onder de 12 reizen meestal met iemand die al heeft betaald.</p>
+      <p>Daarom willen wij dit gratis maken.</p>
+    </div>
+
+    <div class="card">
+      <h3>Gezinnen met een laag inkomen</h3>
+      <p>Voor gezinnen met een laag inkomen willen wij een korting van 75% aanbieden.</p>
+    </div>
+  </div>
+</section>
+
+<section id="stappen" class="page">
+  <h1>onze stappen naar beter OV</h1>
+  <div class="grid">
+    <div class="notice">website bouwen – hier zijn wij nu</div>
+    <div class="card">socials maken</div>
+    <div class="card">petitie starten</div>
+    <div class="card">debat in de Tweede Kamer</div>
+  </div>
+</section>
+
+<section id="calc" class="page">
+  <h1>Hoeveel betaal je per maand?</h1>
+  <div class="card">
+    <p>Onder de 12: gratis</p>
+    <p>Studenten: gratis</p>
+    <p>Kind (12–18): €75 / met stadspas €18,75</p>
+    <p>Volwassene: €125 / met stadspas €31,25</p>
+  </div>
+</section>
+
+<section id="petitie" class="page">
+  <h1>petitie</h1>
+  <div class="notice">
+    Er komt binnenkort een petitie.
+    Schrijf je in voor de nieuwsbrief om op de hoogte te blijven.
+  </div>
+</section>
+
+<section id="contact" class="page">
+  <h1>Contact</h1>
+  <div class="card">
+    <p><strong>Email:</strong> BBOVNL@outlook.com</p>
+    <p><strong>TikTok:</strong> @BBOVNL</p>
+  </div>
+</section>
+
+<section id="voordelen" class="page">
+  <h1>de voordelen van de BBOVNL-pas</h1>
+  <div class="grid">
+    <div class="card"><p>OV wordt betaalbaarder voor iedereen</p></div>
+    <div class="card"><p>Eén abonnement voor heel Nederland</p></div>
+    <div class="card"><p>Gratis OV voor kinderen onder de 12</p></div>
+    <div class="card"><p>Studenten OV blijft bestaan</p></div>
+    <div class="card"><p>Minder files en lagere CO₂-uitstoot</p></div>
+  </div>
+</section>
 
 </main>
 
@@ -199,15 +251,10 @@
 
 <script>
   function showPage(id, btn) {
-    const page = document.getElementById(id);
-    if (!page) return;
-
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-
-    page.classList.add('active');
+    document.getElementById(id).classList.add('active');
     if (btn) btn.classList.add('active');
-
     window.scrollTo(0, 0);
   }
 </script>
