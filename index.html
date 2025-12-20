@@ -147,15 +147,17 @@
 <section id="home" class="page active">
   <h1>Welkom bij BBOVNL</h1>
   <div class="card">
+    
     <p>"BBOVNL" staat voor: Beter betaalbaarder openbaar vervoer (voor) nederland.</p>
+    
     <p>Wij zorgen er voor dat het ov goedkoper wordt voor de Nederlander die dagelijks het OV pakt.</p>
+    
     <p>BBOVNL is een onafhankelijk initiatief van OV-gebruikers. Geen politieke partij, geen commercieel doel.</p>
+    
   </div>
 </section>
-
-<section id="plan" class="page">
-  <h1>ons plan</h1>
-  <div class="card">
+<!---ons plan--->
+<section id="plan" class="page">  <h1>ons plan</h1> <div class="card">
 
       <div class="card">
       <h3>Jongeren (12–18)</h3>
@@ -206,17 +208,69 @@
   <div class="card">website bouwen</div>
   <div class="notice">socials aanmaken - *hier zijn wij nu*</div>
   <div class="card">politiek Den Haag informeren (bijv. D66,Glpvda,Pvv,vvd etc)</div>
-  <div class="card">petitie aanmaken en 40.000 stemmen laten krijgen</div>
+  <div class="card">petitie aanmaken</div>
+  <div class="card">petitie krijgt 40.000 handtekeningen op petitie.nl</div>
   <div class="card">debat in de 2e kamer</div>
   <div class="card">indien aangenomen, naar de 1e kamer</div>
   <div class="card">indien aangenomen, afwachten)</div>
 </section>
 
 <section id="calc" class="page">
-  <h1>hoeveel betaal je permaand als je zo'n abbonement wil?</h1>
-  <div class="card">
-    <p>Overzicht volgt.</p>
-  </div>
+<h1>Hoeveel betaal je per maand?</h1>
+
+<p>Beantwoord de vragen hieronder om te zien wat jouw maandbedrag zou zijn.</p>
+
+<label>
+  <strong>Ben je een kind of een volwassene?</strong>
+</label>
+<select id="leeftijd">
+  <option value="">-- kies --</option>
+  <option value="kind">Kind (12–18)</option>
+  <option value="volwassene">Volwassene (18+)</option>
+</select>
+
+<br><br>
+
+<label>
+  <strong>Kom je in aanmerking voor een stadspas / lage inkomensregeling?</strong>
+</label>
+<select id="stadspas">
+  <option value="">-- kies --</option>
+  <option value="ja">Ja</option>
+  <option value="nee">Nee</option>
+</select>
+
+<br><br>
+
+<button onclick="berekenPrijs()">Bereken</button>
+
+<p id="uitkomst" style="margin-top:1rem; font-weight:bold;"></p>
+
+<script>
+function berekenPrijs() {
+  const leeftijd = document.getElementById("leeftijd").value;
+  const stadspas = document.getElementById("stadspas").value;
+  const uitkomst = document.getElementById("uitkomst");
+
+  if (!leeftijd || !stadspas) {
+    uitkomst.textContent = "Vul alle keuzes in.";
+    return;
+  }
+
+  let prijs = 0;
+
+  if (leeftijd === "kind") {
+    prijs = stadspas === "ja" ? 20 : 75;
+  }
+
+  if (leeftijd === "volwassene") {
+    prijs = stadspas === "ja" ? 31.75 : 125;
+  }
+
+  uitkomst.textContent = "Je betaalt €" + prijs + " per maand.";
+}
+</script>
+
 </section>
 
 <section id="petitie" class="page">
