@@ -499,19 +499,6 @@ Hieronder zie je wat dit betekent voor reizigers, gezinnen en de samenleving.
 
     window.scrollTo(0, 0);
   }
-
-  // Sneeuwvlokken
-  const sneeuwAantal = 50;
-  for (let i = 0; i < sneeuwAantal; i++) {
-    const span = document.createElement('span');
-    span.className = 'snowflake';
-    span.textContent = '❄';
-    span.style.left = Math.random() * 100 + 'vw';
-    span.style.fontSize = (Math.random() * 20 + 10) + 'px';
-    span.style.animationDuration = (Math.random() * 5 + 5) + 's';
-    span.style.opacity = Math.random();
-    document.body.appendChild(span);
-  }
 </script>
 
 <footer>
