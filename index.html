@@ -158,6 +158,19 @@
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
+@media (max-width: 600px) {
+  header {
+    position: fixed; /* header blijft bovenin scherm */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+  }
+
+  main {
+    padding-top: 6rem; /* ruimte maken zodat content niet onder header verdwijnt */
+  }
+}
 
 </style>
 
