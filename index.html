@@ -7,7 +7,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
+ <style>
   :root {
     --primary: #1e3a8a;     /* diep blauw voor headers en accenten */
     --secondary: #3b82f6;   /* lichtere accentkleur */
@@ -84,12 +84,13 @@
     text-decoration: none;
     font-weight: 700;
     font-size: 0.95rem;
-    transition: background 0.3s, color 0.3s;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
   }
 
   .header-cta:hover {
     background: var(--accent);
     color: white;
+    transform: translateY(-2px);
   }
 
   main {
@@ -138,27 +139,8 @@
     font-size: 0.95rem;
     font-weight: 500;
   }
-
-  /* Sneeuwvlokken / animatie blijft */
-  .snowflake {
-    position: fixed;
-    top: -10px;
-    z-index: 9999;
-    pointer-events: none;
-    color: white;
-    font-size: 1em;
-    user-select: none;
-    animation-name: fall;
-    animation-duration: 10s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-
-  @keyframes fall {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(100vh) rotate(360deg); }
-  }
 </style>
+
 
 
 <body>
