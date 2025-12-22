@@ -8,136 +8,158 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --red: #d32f2f;   /* kerst-rood */
-      --green: #388e3c; /* kerst-groen */
-      --bg: #fffaf0;    /* warme achtergrond */
-      --card: #ffffff;
-      --text: #1f2933;
-    }
+  :root {
+    --primary: #fbbf24;   /* warm geel */
+    --secondary: #f59e0b; /* diep goud */
+    --bg: #fffaf0;        /* lichte, warme achtergrond */
+    --card: #ffffff;      
+    --text: #1f2933;      
+    --accent: #f97316;    /* voor highlights */
+  }
 
-    * { box-sizing: border-box; }
+  * { box-sizing: border-box; }
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
 
-    header {
-      background: linear-gradient(90deg, var(--red), var(--green));
-      color: white;
-      padding: 1rem 1.5rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.6rem;
-    }
+  header {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 1rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
 
-    header h2 {
-      margin: 0;
-      font-size: 1.3rem;
-    }
+  header h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
 
-    nav button {
-      background: rgba(255,255,255,0.15);
-      border: none;
-      color: white;
-      padding: 0.45rem 0.9rem;
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
+  nav button {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.3s, transform 0.2s;
+  }
 
-    nav button.active {
-      background: white;
-      color: #111;
-      font-weight: 600;
-    }
+  nav button:hover {
+    background: rgba(255,255,255,0.35);
+    transform: translateY(-2px);
+  }
 
-    .header-cta {
-      margin-left: auto;
-      background: white;
-      color: #111;
-      padding: 0.5rem 1.2rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
+  nav button.active {
+    background: white;
+    color: #111;
+    font-weight: 600;
+  }
 
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem 1.2rem;
-    }
+  .header-cta {
+    margin-left: auto;
+    background: white;
+    color: #111;
+    padding: 0.55rem 1.3rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: background 0.3s, color 0.3s;
+  }
 
-    .page { display: none; }
-    .page.active { display: block; }
+  .header-cta:hover {
+    background: var(--accent);
+    color: white;
+  }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.2rem;
-      margin-top: 1.2rem;
-    }
+  main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem 1.5rem;
+  }
 
-    .card {
-      background: var(--card);
-      padding: 1.3rem;
-      border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-    }
+  .page { display: none; }
+  .page.active { display: block; }
 
-    .notice {
-      background: #fff3cd;
-      border-left: 6px solid #ff9800;
-      padding: 1rem;
-      border-radius: 10px;
-      font-weight: 500;
-    }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
 
-    footer {
-      margin-top: 3rem;
-      background: linear-gradient(90deg, var(--red), var(--green));
-      color: white;
-      text-align: center;
-      padding: 1.2rem;
-      font-size: 0.9rem;
-    }
+  .card {
+    background: var(--card);
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
 
-    /* Sneeuwvlokken */
-    .snowflake {
-      position: fixed;
-      top: -10px;
-      z-index: 9999;
-      pointer-events: none;
-      color: white;
-      font-size: 1em;
-      user-select: none;
-      animation-name: fall;
-      animation-duration: 10s;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-    }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 28px rgba(0,0,0,0.12);
+  }
 
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); }
-      100% { transform: translateY(100vh) rotate(360deg); }
-    }
-  </style>
-</head>
+  .notice {
+    background: #fff4e5;
+    border-left: 6px solid var(--accent);
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    font-weight: 500;
+  }
+
+  footer {
+    margin-top: 3rem;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  /* Sneeuwvlokken / animatie blijft */
+  .snowflake {
+    position: fixed;
+    top: -10px;
+    z-index: 9999;
+    pointer-events: none;
+    color: white;
+    font-size: 1em;
+    user-select: none;
+    animation-name: fall;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+  }
+</style>
+
 
 <body>
 
