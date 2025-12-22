@@ -9,12 +9,12 @@
 
   <style>
   :root {
-    --primary: #fbbf24;   /* warm geel */
-    --secondary: #f59e0b; /* diep goud */
-    --bg: #fffaf0;        /* lichte, warme achtergrond */
-    --card: #ffffff;      
-    --text: #1f2933;      
-    --accent: #f97316;    /* voor highlights */
+    --primary: #1e3a8a;     /* diep blauw voor headers en accenten */
+    --secondary: #3b82f6;   /* lichtere accentkleur */
+    --bg: #f9fafb;          /* lichte, neutrale achtergrond */
+    --card: #ffffff;         /* kaarten wit */
+    --text: #111827;         /* donkergrijs voor tekst */
+    --accent: #2563eb;       /* hover/actie accenten */
   }
 
   * { box-sizing: border-box; }
@@ -28,7 +28,7 @@
   }
 
   header {
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background: var(--primary);
     color: white;
     padding: 1rem 1.5rem;
     position: sticky;
@@ -54,7 +54,7 @@
   }
 
   nav button {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.15);
     border: none;
     color: white;
     padding: 0.5rem 1rem;
@@ -65,20 +65,20 @@
   }
 
   nav button:hover {
-    background: rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.3);
     transform: translateY(-2px);
   }
 
   nav button.active {
     background: white;
-    color: #111;
+    color: var(--primary);
     font-weight: 600;
   }
 
   .header-cta {
     margin-left: auto;
     background: white;
-    color: #111;
+    color: var(--primary);
     padding: 0.55rem 1.3rem;
     border-radius: 999px;
     text-decoration: none;
@@ -122,7 +122,7 @@
   }
 
   .notice {
-    background: #fff4e5;
+    background: #e0f2fe;
     border-left: 6px solid var(--accent);
     padding: 1rem 1.2rem;
     border-radius: 12px;
@@ -131,7 +131,7 @@
 
   footer {
     margin-top: 3rem;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    background: var(--primary);
     color: white;
     text-align: center;
     padding: 1.5rem;
