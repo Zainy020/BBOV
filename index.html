@@ -140,9 +140,23 @@
     font-weight: 500;
   }
 
-  #petitie a {
-  font-size: 1.1em;
-  font-weight: bold;
+.petitie-knop {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.8rem 1.6rem;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.petitie-knop:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 </style>
@@ -352,17 +366,12 @@ function berekenPrijs() {
 
 <section id="petitie" class="page">
  <h2 id="petitie">Petitie</h2>
-<p>
-  Vind jij ook dat het OV betaalbaar moet worden? </p>
-  <br>
-  <a href="https://petities.nl/petitions/maak-het-openbaar-vervoer-betaalbaar-met-een-landelijk-ov-abonnement-b29c09f7-6d37-40c2-a12b-df37d3ffa4d2?locale=nl" target="_blank">
-    👉 Teken hier de BBOVNL-petitie
-  </a>
-#petitie a {
-  font-size: 1.1em;
-  font-weight: bold;
-}
-
+<a href="https://petities.nl/petitions/maak-het-openbaar-vervoer-betaalbaar-met-een-landelijk-ov-abonnement-b29c09f7-6d37-40c2-a12b-df37d3ffa4d2?locale=nl"
+   target="_blank"
+   class="petitie-knop">
+  👉 Teken hier de BBOVNL-petitie
+</a>
+  
 </section>
 
 <section id="contact" class="page">
